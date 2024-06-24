@@ -1,0 +1,122 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="WebT.Site" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <!-- 引入Bootstrap和FontAwesome的压缩版CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #343a40;
+            color: #fff;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            margin-right: auto; /* Ensure it aligns to the left */
+            margin-left: 120px; /* Ensure it aligns to the left */
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+        .user-icon {
+            margin-right: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .user-info span {
+            margin-right: 5px;
+        }
+        .dropdown-menu {
+            right: 0;
+            left: auto;
+        }
+        .sidebar {
+            height: calc(100vh - 60px);
+            position: fixed;
+            top: 62px;
+            left: 0;
+            width: 250px;
+            background-color: #838B83;
+            color: #fff;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sidebar h3 {
+            margin-bottom: 30px;
+        }
+        .sidebar a {
+            color: #fff;
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+        }
+        .sidebar a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        .card {
+            margin: 15px 0;
+        }
+    </style>
+    <asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- 头部导航栏 -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">卧龙管理系统</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item user-info">
+                            <i class="fas fa-user user-icon"></i> 
+                            <asp:Literal ID="UserNameLiteral" runat="server" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <h3><i class="fa-solid fa-dragon"></i></h3> 
+            <a href="Welcome.aspx"><i class="fas fa-tachometer-alt"></i> 系统首页</a>
+            <a href="#messages"><i class="fas fa-envelope"></i> 消息通知</a>
+            <a href="UserControl.aspx"><i class="fas fa-users"></i> 用户管理</a>
+            <a href="#finance"><i class="fas fa-chart-line"></i> 财务报表</a>
+            <a href="#materials"><i class="fas fa-archive"></i> 物料管理</a>
+            <a href="#settings"><i class="fas fa-cog"></i> 系统设置</a>
+            <a href="Login.aspx"><i class="fas fa-sign-out-alt"></i> 退出登录</a>
+        </div>
+
+        <!-- 内容区 -->
+        <div class="content">
+            <!-- 页面内容占位符 -->
+            <asp:ContentPlaceHolder id="MainContent" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/popper.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+</body>
+</html>
